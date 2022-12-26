@@ -74,7 +74,7 @@
 <div class="container">
 
 	<form class="col-md-12" action="<?php echo URL::to('/');?>/edit/<?=$users->id?>" method="put">  
-            <h4><strong>FICHE ETUDIANT</strong></h4>
+            <h4><strong>FICHE PARENTS</strong></h4>
             <hr/>
             <div class="row">
                 <div class = "col-sm-2">

@@ -12,7 +12,7 @@
 
 class ParentController extends Controller {
 
-   
+       
         public function seConnecter(){
             return view('Auth.login');
         }
@@ -29,16 +29,22 @@ class ParentController extends Controller {
 
                 */
                 //$id = auth()->user()->id;
+                /*$userId = Auth::check() ? Auth::id() : true;
+                Auth::user()->id;*/
+                
+               
                 $lastname = $request->lastname;
                 $email = $request->email;
                 $password = $request->password;
                 $result = DB::select('select * from users where  password= :password AND email = :email LIMIT 1', ['password' => $password, 'email'=> $email]);
-                // dd($result);
+               // dd($result);
+              // dd($userId);
                 if(sizeof ($result)>0){
                    // if (!auth()->user() || !auth()->user()->id) {
                      //   redirect('/liste');
                     //}
-                    return redirect('/liste');
+                   
+                   return redirect('/liste');
                     //return redirect('/profil');
 
                 }else{

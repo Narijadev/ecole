@@ -12,24 +12,47 @@
 
 class ParentController extends Controller {
 
+   
         public function seConnecter(){
             return view('Auth.login');
         }
         public function authenticate(Request $request)
             {  
+                /* 
+                if (!auth()->user() || !auth()->user()->id) {
+                    redirect('/');
+                }
                 
+                $email = auth()->user()->email;
+                $password = auth()->user()->password;
+                $liste = auth()->user()->liste;
+
+                */
+                //$id = auth()->user()->id;
+                $lastname = $request->lastname;
                 $email = $request->email;
                 $password = $request->password;
                 $result = DB::select('select * from users where  password= :password AND email = :email LIMIT 1', ['password' => $password, 'email'=> $email]);
-               // dd($result);
+                // dd($result);
                 if(sizeof ($result)>0){
+                   // if (!auth()->user() || !auth()->user()->id) {
+                     //   redirect('/liste');
+                    //}
                     return redirect('/liste');
+                    //return redirect('/profil');
 
                 }else{
                     return redirect('/');
                 }
              
             }
+            public function listeEtudiants(){
+                //$users = User::all()->paginate(8);
+               // $etudiants = DB::table('etudiant')->where('parentId', '19')->paginate(4);
+                $etudiants = DB::table('etudiants')->where('parentId', '18')->paginate(4);
+                //dd($etudiants);
+                return view('liste_etudiants',['etudiants' => $etudiants]);
+                }
 
         public function logout()
         {

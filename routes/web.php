@@ -34,6 +34,7 @@ Route::post('logout','ParentController@logout')->name('logout');
 Route::get('register','ParentController@register')->name('register.users');
 /*page insertion*/
 Route::get('/liste','ParentController@home')->name('liste.users');
+Route::get('/liste-etudiants','ParentController@listeEtudiants')->name('liste.etudiants');
 Route::get('/profil/{id}','ParentController@profil')->name('profil.users');
 /*page insertion*/
 Route::get('/inserer','ParentController@add_users');

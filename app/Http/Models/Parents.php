@@ -22,4 +22,8 @@ class Parents extends Model
         {
             return $this->hasMany(Etudiant::class, 'parentId');
         }
+        public function getId()
+        {
+        return $this->id;
+        }
 }
